@@ -8,5 +8,8 @@ dependency-reduced-pom.xml
 .classpath
 .settings
 
-.vscode
+.env
+.envrc
+.direnv/
+.vscode/
 build.sh
