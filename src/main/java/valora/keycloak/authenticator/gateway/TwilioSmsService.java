@@ -1,9 +1,10 @@
 package valora.keycloak.authenticator.gateway;
 
-// import software.amazon.awssdk.services.sns.SnsClient;
-// import software.amazon.awssdk.services.sns.model.MessageAttributeValue;
+import com.twilio.Twilio;
+import com.twilio.rest.api.v2010.account.Message;
+import com.twilio.type.PhoneNumber;
 
-import java.util.HashMap;
+// import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -11,7 +12,9 @@ import java.util.Map;
  */
 public class TwilioSmsService implements SmsService {
 
-	private static final SnsClient sns = SnsClient.create();
+    // public static final String accountSid = System.getenv("TWILIO_ACCOUNT_SID");
+    // public static final String authToken = System.getenv("TWILIO_AUTH_TOKEN");
+    // public static final String PhoneNumberFrom = System.getenv("PHONE_NUMBER_FROM");
 
 	private final String senderId;
 
@@ -21,16 +24,16 @@ public class TwilioSmsService implements SmsService {
 
 	@Override
 	public void send(String phoneNumber, String message) {
-		Map<String, MessageAttributeValue> messageAttributes = new HashMap<>();
-		messageAttributes.put("AWS.SNS.SMS.SenderID",
-			MessageAttributeValue.builder().stringValue(senderId).dataType("String").build());
-		messageAttributes.put("AWS.SNS.SMS.SMSType",
-			MessageAttributeValue.builder().stringValue("Transactional").dataType("String").build());
+        // Twilio.init(accountSid, authToken);
 
-		sns.publish(builder -> builder
-			.message(message)
-			.phoneNumber(phoneNumber)
-			.messageAttributes(messageAttributes));
+        Message twilioMessage = Message
+            .creator(
+                new PhoneNumber(phoneNumber),
+                new PhoneNumber(senderId),
+                message)
+            .create();
+
+        System.out.println(twilioMessage.getSid());
 	}
 
 }

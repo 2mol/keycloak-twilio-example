@@ -8,7 +8,7 @@ dependency-reduced-pom.xml
 .classpath
 .settings
 
-.env
+*.env
 .envrc
 .direnv/
 .vscode/
