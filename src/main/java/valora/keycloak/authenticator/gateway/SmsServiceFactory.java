@@ -1,11 +1,11 @@
-package dasniko.keycloak.authenticator.gateway;
+package valora.keycloak.authenticator.gateway;
 
 import org.jboss.logging.Logger;
 
 import java.util.Map;
 
 /**
- * @author Niko Köbler, https://www.n-k.de, @dasniko
+ * @author Valora - originally derived from Niko Köbler, https://www.n-k.de
  */
 public class SmsServiceFactory {
 

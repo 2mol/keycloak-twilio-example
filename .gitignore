@@ -1,6 +1,12 @@
 .idea
 *.iml
 config
-target
-copy.sh
+target/
 dependency-reduced-pom.xml
+.project
+.factorypath
+.classpath
+.settings
+
+.vscode
+build.sh

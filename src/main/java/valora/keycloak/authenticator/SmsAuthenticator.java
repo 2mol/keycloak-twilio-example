@@ -1,6 +1,6 @@
-package dasniko.keycloak.authenticator;
+package valora.keycloak.authenticator;
 
-import dasniko.keycloak.authenticator.gateway.SmsServiceFactory;
+import valora.keycloak.authenticator.gateway.SmsServiceFactory;
 import org.keycloak.authentication.AuthenticationFlowContext;
 import org.keycloak.authentication.AuthenticationFlowError;
 import org.keycloak.authentication.Authenticator;
@@ -17,7 +17,7 @@ import java.util.Locale;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
- * @author Niko Köbler, https://www.n-k.de, @dasniko
+ * @author Valora - originally derived from Niko Köbler, https://www.n-k.de
  */
 public class SmsAuthenticator implements Authenticator {
 

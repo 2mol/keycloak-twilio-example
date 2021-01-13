@@ -1,4 +1,4 @@
-package dasniko.keycloak.authenticator;
+package valora.keycloak.authenticator;
 
 import org.keycloak.Config;
 import org.keycloak.authentication.Authenticator;
@@ -9,14 +9,13 @@ import org.keycloak.models.KeycloakSessionFactory;
 import org.keycloak.provider.ProviderConfigProperty;
 import org.keycloak.provider.ServerInfoAwareProviderFactory;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
 /**
- * @author Niko Köbler, https://www.n-k.de, @dasniko
+ * @author Valora - originally derived from Niko Köbler, https://www.n-k.de
  */
 public class SmsAuthenticatorFactory implements AuthenticatorFactory, ServerInfoAwareProviderFactory {
 
