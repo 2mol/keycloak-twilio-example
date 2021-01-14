@@ -14,7 +14,7 @@
 		<maven.compiler.source>${java.version}</maven.compiler.source>
 		<maven.compiler.target>${java.version}</maven.compiler.target>
 		<aws.version>2.15.1</aws.version>
-		<twilio.version>8.3.0</twilio.version>
+		<twilio.version>8.6.0</twilio.version>
 		<keycloak.version>12.0.1</keycloak.version>
 		<maven-shade.version>3.2.4</maven-shade.version>
 	</properties>
@@ -35,24 +35,13 @@
 			<artifactId>keycloak-services</artifactId>
 			<scope>provided</scope>
 		</dependency>
-		<!-- <dependency>
-			<groupId>software.amazon.awssdk</groupId>
-			<artifactId>sns</artifactId>
-			<version>${aws.version}</version>
-			<exclusions>
-				<exclusion>
-					<groupId>software.amazon.awssdk</groupId>
-					<artifactId>netty-nio-client</artifactId>
-				</exclusion>
-			</exclusions>
-        </dependency> -->
         <dependency>
             <groupId>com.twilio.sdk</groupId>
             <artifactId>twilio</artifactId>
             <version>${twilio.version}</version>
-            <!-- <scope>runtime</scope> -->
+            <!-- <scope>compile</scope> -->
         </dependency>
-        <!-- <dependency>
+        <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
             <version>2.14.0</version>
@@ -61,6 +50,13 @@
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
             <version>2.14.0</version>
+			<scope>runtime</scope>
+        </dependency>
+        <!-- <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>2.14.0</version>
+			<type>pom</type>
         </dependency> -->
 	</dependencies>
 
@@ -89,34 +85,23 @@
 						<goals>
 							<goal>shade</goal>
 						</goals>
-                        <!-- <configuration>
-                          <transformers>
-                            <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                              <mainClass>org.sonatype.haven.HavenCli</mainClass>
-                            </transformer>
-                          </transformers>
-                        </configuration> -->
 						<configuration>
+                            <!-- <filters>
+                                <filter>
+                                   <artifact>*:*</artifact>
+                                   <excludes>
+                                      <exclude>META-INF/*.MF</exclude>
+                                   </excludes>
+                                </filter>
+                             </filters> -->
 							<artifactSet>
 								<excludes>
 									<exclude>com.fasterxml.jackson.core</exclude>
-									<!-- <exclude>com.fasterxml.jackson.datatype</exclude> -->
 									<exclude>org.apache.httpcomponents</exclude>
 									<exclude>commons-logging</exclude>
 									<exclude>commons-codec</exclude>
-									<!-- <exclude>commons-io</exclude> -->
-									<!-- <exclude>org.apache.logging.log4j</exclude> -->
-									<!-- <exclude>io.jsonwebtoken</exclude>
-									<exclude>javax.xml.bind</exclude>
-									<exclude>javax.activation</exclude> -->
-									<!-- <exclude>com.twilio.sdk</exclude> -->
 								</excludes>
 							</artifactSet>
-                            <transformers>
-                              <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                <mainClass>org.sonatype.haven.HavenCli</mainClass>
-                              </transformer>
-                            </transformers>
 						</configuration>
 					</execution>
 				</executions>

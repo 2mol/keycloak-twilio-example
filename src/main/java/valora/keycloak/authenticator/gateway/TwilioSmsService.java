@@ -26,8 +26,6 @@ public class TwilioSmsService implements SmsService {
 	public void send(String phoneNumber, String message) {
         Twilio.init(accountSid, authToken);
 
-        System.out.println(accountSid);
-
         Message twilioMessage = Message
             .creator(
                 new PhoneNumber(phoneNumber),
@@ -36,6 +34,5 @@ public class TwilioSmsService implements SmsService {
             .create();
 
         System.out.println(twilioMessage.getSid());
-        // System.out.println("ya");
 	}
 }
