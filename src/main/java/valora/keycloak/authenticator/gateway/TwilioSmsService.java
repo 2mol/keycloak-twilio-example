@@ -12,8 +12,8 @@ import java.util.Map;
  */
 public class TwilioSmsService implements SmsService {
 
-    // public static final String accountSid = System.getenv("TWILIO_ACCOUNT_SID");
-    // public static final String authToken = System.getenv("TWILIO_AUTH_TOKEN");
+    public static final String accountSid = System.getenv("TWILIO_ACCOUNT_SID");
+    public static final String authToken = System.getenv("TWILIO_AUTH_TOKEN");
     // public static final String PhoneNumberFrom = System.getenv("PHONE_NUMBER_FROM");
 
 	private final String senderId;
@@ -24,7 +24,9 @@ public class TwilioSmsService implements SmsService {
 
 	@Override
 	public void send(String phoneNumber, String message) {
-        // Twilio.init(accountSid, authToken);
+        Twilio.init(accountSid, authToken);
+
+        System.out.println(accountSid);
 
         Message twilioMessage = Message
             .creator(
@@ -34,6 +36,6 @@ public class TwilioSmsService implements SmsService {
             .create();
 
         System.out.println(twilioMessage.getSid());
+        // System.out.println("ya");
 	}
-
 }
