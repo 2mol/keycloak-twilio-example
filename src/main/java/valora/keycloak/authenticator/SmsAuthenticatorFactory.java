@@ -1,4 +1,4 @@
-package valora.keycloak.authenticator;
+package example.keycloak.authenticator;
 
 import org.keycloak.Config;
 import org.keycloak.authentication.Authenticator;
@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author Valora - originally derived from Niko Köbler, https://www.n-k.de
+ * @author example - originally derived from Niko Köbler, https://www.n-k.de
  */
 public class SmsAuthenticatorFactory implements AuthenticatorFactory, ServerInfoAwareProviderFactory {
 

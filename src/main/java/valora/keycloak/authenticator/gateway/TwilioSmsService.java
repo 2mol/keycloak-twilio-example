@@ -1,4 +1,4 @@
-package valora.keycloak.authenticator.gateway;
+package example.keycloak.authenticator.gateway;
 
 import com.twilio.Twilio;
 import com.twilio.rest.api.v2010.account.Message;
@@ -8,7 +8,7 @@ import com.twilio.type.PhoneNumber;
 import java.util.Map;
 
 /**
- * @author Valora - originally derived from Niko Köbler, https://www.n-k.de
+ * @author example - originally derived from Niko Köbler, https://www.n-k.de
  */
 public class TwilioSmsService implements SmsService {
 

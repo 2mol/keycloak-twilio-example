@@ -1,1 +1,1 @@
-valora.keycloak.authenticator.SmsAuthenticatorFactory
+example.keycloak.authenticator.SmsAuthenticatorFactory

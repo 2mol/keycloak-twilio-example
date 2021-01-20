@@ -1,7 +1,7 @@
-package valora.keycloak.authenticator.gateway;
+package example.keycloak.authenticator.gateway;
 
 /**
- * @author Valora - originally derived from Niko Köbler, https://www.n-k.de
+ * @author example - originally derived from Niko Köbler, https://www.n-k.de
  */
 public interface SmsService {
 
