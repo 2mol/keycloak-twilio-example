@@ -13,10 +13,10 @@ This code example is based on `https://www.n-k.de/2020/12/keycloak-2fa-sms-authe
 
 Dependencies are maven, openjdk 11, and docker.
 
-- build the module with `./make.sh build`.
+- build the module with `mvn clean package`.
 - Create an `.env` file, use `example.env` as a template. This is needed for the Twilio token.
 - Start a keycloak container with `docker run --name keycloak -p 8080:8080 --env-file .env quay.io/keycloak/keycloak:12.0.1`
-- Copy the compiled module .jar over with `./make.sh deploy-module`. The keycloak logs will show the module being loaded.
+- Copy the compiled module .jar over with `docker cp target/example-keycloak-2fa-sms-authenticator-*.jar keycloak:/opt/jboss/keycloak/standalone/deployments/`. The keycloak logs will show the module being loaded.
 
 Now the more manual part is to trigger usage of the module:
 
